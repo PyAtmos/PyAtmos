@@ -411,6 +411,10 @@ class Simulation():
     def _run_clima(self, max_clima_steps, output_directory, methane_concentration, previous_clima_solution=None):
 
 
+        # Make sure the output directory exists
+        command = "mkdir -p {0}".format(output_directory)
+        print("Will try to make directory "+output_directory)
+        os.system(command)
 
         ################################
         # Deal with clima input to get it ready for running 
