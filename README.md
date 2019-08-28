@@ -2,7 +2,7 @@
 
 A Docker image for [Atmos](https://github.com/VirtualPlanetaryLaboratory/atmos) and a Python package for interacting with Atmos, for NASA FDL 2018 astrobiology challenges.
 
-Initial work by Adam Cobb and Atilim Gunes Baydin. Further development by William Fawcett. 
+Development by William Fawcett, Rodd Talebi, Aaron Bell and Aditya Chopra, with some initial work by Adam Cobb and Atilim Gunes Baydin.
 
 
 ## How to install
