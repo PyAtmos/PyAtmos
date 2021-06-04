@@ -18,8 +18,7 @@ Make sure python and pip are installed:
 
     sudo apt update
     sudo apt install python python-dev python3 python3-dev
-    wget https://bootstrap.pypa.io/get-pip.py
-    sudo python get-pip.py
+    sudo apt install pip
 
 
 Make sure docker is installed:
@@ -37,8 +36,8 @@ Make sure docker is installed:
 ### Install the package
 
 ```
-git clone git@gitlab.com:frontierdevelopmentlab/astrobiology/pyatmos.git
-cd pyatmos
+git clone https://github.com/PyAtmos/PyAtmos.git
+cd PyAtmos
 pip install -e .
 ```
 
