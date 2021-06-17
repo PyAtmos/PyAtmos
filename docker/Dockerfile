@@ -1,5 +1,5 @@
-FROM ubuntu:16.04
-MAINTAINER Will Fawcett <willfaw@gmail.com>
+FROM ubuntu:20.04
+LABEL Will Fawcett <willfaw@gmail.com>
 
 # Get OS 
 RUN apt-get update && apt-get install -y --no-install-recommends \
