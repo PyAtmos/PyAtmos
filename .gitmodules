@@ -1,3 +1,6 @@
 [submodule "docker/atmos"]
 	path = docker/atmos
 	url = https://github.com/PyAtmos/atmos_fdl.git
+[submodule "docker/atmos_latest"]
+	path = docker/atmos_latest
+	url = https://github.com/VirtualPlanetaryLaboratory/atmos.git
