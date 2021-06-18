@@ -2,13 +2,13 @@ import os
 import sys
 from setuptools import setup, find_packages
 PACKAGE_NAME = 'pyatmos'
-# MINIMUM_PYTHON_VERSION = 3, 5
-#
-#
-# def check_python_version():
-#     """Exit when the Python version is too low."""
-#     if sys.version_info < MINIMUM_PYTHON_VERSION:
-#         sys.exit("Python {}.{}+ is required.".format(*MINIMUM_PYTHON_VERSION))
+MINIMUM_PYTHON_VERSION = 3, 5
+
+
+def check_python_version():
+    """Exit when the Python version is too low."""
+    if sys.version_info < MINIMUM_PYTHON_VERSION:
+        sys.exit("Python {}.{}+ is required.".format(*MINIMUM_PYTHON_VERSION))
 
 def read_package_variable(key):
     """Read the value of a variable from the package without importing."""
@@ -28,8 +28,8 @@ setup(
     author='Atilim Gunes Baydin and Adam Cobb and William Fawcett',
     author_email='gunes@robots.ox.ac.uk',
     packages=find_packages(),
-    install_requires=['docker==3.4.0'],
-    url='https://gitlab.com/frontierdevelopmentlab/astrobiology/pyatmos',
+    install_requires=['docker<3.4.0'],
+    url='https://github.com/PyAtmos/PyAtmos',
     classifiers=['Development Status :: 4 - Beta', 'License :: OSI Approved :: BSD License', 'Programming Language :: Python :: 3.5'],
     license='BSD',
     keywords='astrobiology',
