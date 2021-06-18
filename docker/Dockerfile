@@ -9,20 +9,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
         ca-certificates &&\
     rm -rf /var/lib/apt/lists/* &&\
-    export ATMOSDIR=/code/atmos &&\ 
+    export ATMOSDIR=/code/atmos &&\
+    export TEMPLATENAME=ModernEarth &&\
+    export PHOTOCHEMINPUT=${ATMOSDIR}/PHOTOCHEM/INPUTFILES/TEMPLATES/${TEMPLATENAME} &&\
     # Sort out ATMOS files
-    cp /code/atmos/PHOTOCHEM/INPUTFILES/TEMPLATES/ModernEarth/in.dist /code/atmos/PHOTOCHEM/in.dist &&\
-    cp /code/atmos/PHOTOCHEM/INPUTFILES/TEMPLATES/ModernEarth/input_photchem.dat /code/atmos/PHOTOCHEM/INPUTFILES/ &&\
-    cp /code/atmos/PHOTOCHEM/INPUTFILES/TEMPLATES/ModernEarth/reactions.rx /code/atmos/PHOTOCHEM/INPUTFILES/ &&\
-    cp /code/atmos/PHOTOCHEM/INPUTFILES/TEMPLATES/ModernEarth/parameters.inc /code/atmos/PHOTOCHEM/INPUTFILES/ &&\
-    cp /code/atmos/PHOTOCHEM/INPUTFILES/TEMPLATES/ModernEarth/species.dat /code/atmos/PHOTOCHEM/INPUTFILES/ &&\
-    cp /code/atmos/PHOTOCHEM/INPUTFILES/TEMPLATES/ModernEarth/PLANET.dat /code/atmos/PHOTOCHEM/INPUTFILES/ &&\
+    cp ${PHOTOCHEMINPUT}/in.dist ${ATMOSDIR}/PHOTOCHEM/ &&\
+    cp ${PHOTOCHEMINPUT}/{input_photchem, reactions.rx, parameters.inc, species.dat, PLANET.dat} ${ATMOSDIR}/PHOTOCHEM/INPUTFILES/ &&\
     cp /code/atmos/CLIMA/IO/TEMPLATES/ModernEarth/input_clima.dat  /code/atmos/CLIMA/IO &&\
     # Check correct species file
-    echo species.dat; cat /code/atmos/PHOTOCHEM/INPUTFILES/species.dat  &&\
+    echo species.dat; cat ${ATMOSDIR}/PHOTOCHEM/INPUTFILES/species.dat  &&\
     # Compile and run photo
-    cd /code/atmos && make -f PhotoMake && ./Photo.run &&\
+    cd ${ATMOSDIR} && make -f PhotoMake && ./Photo.run &&\
     # Compile and run clima 
-    cd /code/atmos && make -f ClimaMake && ./Clima.run &&\
+    cd ${ATMOSDIR} && make -f ClimaMake && ./Clima.run &&\
     # Make sure we're in the root directory 
     cd / 
