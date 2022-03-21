@@ -14,7 +14,7 @@ The Python package pulls the latest Docker image for atmos from the FDL GitLab r
 
 
 ### Prerequisites
-Make sure python and pip are installed:
+If you are using Ububtu (or similar), make sure python and pip are installed:
 
     sudo apt update
     sudo apt install python python-dev python3 python3-dev
@@ -36,14 +36,26 @@ Make sure docker is installed:
 ### Install the package
 
 ```
-git clone https://github.com/PyAtmos/PyAtmos.git
+git clone --recurse-submodules https://github.com/PyAtmos/PyAtmos.git
 cd PyAtmos
 pip install -e .
 ```
 
-### Docker on google cloud
+Note that this version of PyAtmos clones the original ATMOS code, but that ATMOS version dates back to when this package was first developed in 2018. 
+If there are updates to ATMOS that you need, then you can clone ATMOS locally and link PyAtmos to that. 
 
-Setup the docker image on the google cloud:
+### Testing the package
+Navigate to the test directory, and run `simple_run.py`:
+```
+cd tests
+python3 simple_run.py
+```
+This should check out the docker image from the gitlab registry and run this on your machine. 
+Inside `simple_run.py` see how the arguments to the `Simulaton` and `run` functions are called, you can then modify these to point to either your own docker image, or a local version of ATMOS on your own computer.
+
+## Docker on google cloud
+
+To setup the docker image on the google cloud:
 
     # build the docker image, tag it, and upload to repository 
     gcloud builds submit --tag gcr.io/i-agility-205814/pyatmos .
@@ -52,9 +64,6 @@ Setup the docker image on the google cloud:
     gcloud auth configure-docker
     gcloud auth login
   
-
-
-
 
 ## Auxiliary information
 

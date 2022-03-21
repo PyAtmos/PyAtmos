@@ -15,12 +15,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates &&\
     rm -rf /var/lib/apt/lists/* &&\
     export ATMOSDIR=/code/atmos &&\
-    export TEMPLATENAME=ModernEarthSimple &&\
+    export TEMPLATENAME=ModernEarth &&\
     export PHOTOCHEMINPUT=${ATMOSDIR}/PHOTOCHEM/INPUTFILES/TEMPLATES/${TEMPLATENAME} &&\
     # Sort out ATMOS files
     cp ${PHOTOCHEMINPUT}/in.dist ${ATMOSDIR}/PHOTOCHEM/ &&\
     cp ${PHOTOCHEMINPUT}/{input_photchem.dat,reactions.rx,parameters.inc,species.dat,PLANET.dat} ${ATMOSDIR}/PHOTOCHEM/INPUTFILES/ &&\
-    cp /code/atmos/CLIMA/IO/TEMPLATES/ModernEarth/input_clima.dat  /code/atmos/CLIMA/IO &&\
+    cp /code/atmos/CLIMA/IO/TEMPLATES/${TEMPLATENAME}/input_clima.dat  /code/atmos/CLIMA/IO &&\
     # Check correct species file
     echo species.dat; cat ${ATMOSDIR}/PHOTOCHEM/INPUTFILES/species.dat  &&\
     # Compile and run photo

@@ -27,13 +27,13 @@ def format_datetime(unix_timestamp):
 #_________________________________________________________________________
 class Simulation():
     def __init__(self, 
-            docker_image=None, # 'registry.gitlab.com/frontierdevelopmentlab/astrobiology/pyatmos', 
+            docker_image='registry.gitlab.com/frontierdevelopmentlab/astrobiology/pyatmos', 
             code_path=None,
             DEBUG=False, 
             atmos_directory = '/code/atmos'):
         '''
         docker_image: string (optional). If specified, pyatmos will communicate with a docker image, otherwise use the code_path 
-        code_path: string (optional). If specified, pyatmos will communicate witha local version of atmos. The string is the path to the atmos directory 
+        code_path: string (optional). If specified, pyatmos will communicate with a local version of atmos. The string is the path to the atmos directory 
         DEBUG: bool, if set to true, extra debug messages are printed
         '''
 
@@ -45,9 +45,9 @@ class Simulation():
 
         # check if properly initialsed
         if (self._docker_image is not None) and (self._code_path is not None):
-            print('ERROR: specify _either_ a docker images, or a local code path to ATMOS, but not both')
+            raise RuntimeError( 'ERROR: specify _either_ a docker images, or a local code path to ATMOS, but not both')
         if (self._docker_image is None) and (self._code_path is None):
-            print('ERROR: you must specify _either_ a docker images, or a local code path to ATMOS')
+            raise RuntimeError('ERROR: you must specify _either_ a docker image, or a local code path to ATMOS')
 
 
         # initialize docker if need be 
@@ -137,13 +137,14 @@ class Simulation():
 
         # Make sure output directory set 
         if output_directory is None:
-            print('Error, you must set the output_directory')
-            import sys
-            sys.exit()
+            raise RuntimeError('Error, you must set the output_directory')
 
 
         # make sure output directory exists
-        os.system('mkdir -p {0}'.format(output_directory))
+        cmd = 'mkdir -p {0}'.format(output_directory)
+        print("Will create the output directory if it does not exist:")
+        print(cmd)
+        os.system(cmd)
 
         # modify the clima input file with the flux scaling  
         # and make sure ICOUPLE=   0 (since we're probably not running in coupled mode?) TODO, consider if this is the case? 
