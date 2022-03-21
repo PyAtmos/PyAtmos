@@ -45,6 +45,7 @@ Note that this version of PyAtmos clones the original ATMOS code, but that ATMOS
 If there are updates to ATMOS that you need, then you can clone ATMOS locally and link PyAtmos to that. 
 
 ### Testing the package
+
 Navigate to the test directory, and run `simple_run.py`:
 ```
 cd tests
