@@ -44,7 +44,8 @@ pip install -e .
 Note that this version of PyAtmos clones the original ATMOS code, but that ATMOS version dates back to when this package was first developed in 2018. 
 If there are updates to ATMOS that you need, then you can clone ATMOS locally and link PyAtmos to that. 
 
-### Testing the package
+### Testing the package
+
 
 Navigate to the test directory, and run `simple_run.py`:
 ```
