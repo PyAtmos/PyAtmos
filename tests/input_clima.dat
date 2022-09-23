@@ -47,7 +47,7 @@ C        DTAU0 - OPTICAL DEPTH STEP IN SUBLEVEL INTEGRATION
 C         ZCON - ARBITRARY CONSTANT ADDED TO Z TO KEEP IT POSITIVE
 C           P0 - PRESSURE AT TOP OF GRID
 C          PG0 - DRY PRESSURE AT BOTTOM OF GRID. 
-c            G - Gravity aceleration (cm/s^2)
+c            G - Gravity acceleration (cm/s^2)
 C          FAC - RATIO OF GRID SPACING AT TOP TO SPACING AT
 C                BOTTOM
 C          IO3 - 1 TO INCLUDE O3, 0 TO LEAVE IT OUT

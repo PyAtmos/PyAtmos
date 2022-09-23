@@ -43,7 +43,7 @@ class Simulation():
         self._debug           = DEBUG
         self._atmos_directory = atmos_directory
 
-        # check if properly initialsed
+        # check if properly initialised
         if (self._docker_image is not None) and (self._code_path is not None):
             raise RuntimeError( 'ERROR: specify _either_ a docker images, or a local code path to ATMOS, but not both')
         if (self._docker_image is None) and (self._code_path is None):
@@ -187,7 +187,7 @@ class Simulation():
             ):
         '''
         Configures and runs ATMOS, then collects the output.  
-        - Modifes species file with custom concentrations (supplied via species_concentrations) 
+        - Modifies species file with custom concentrations (supplied via species_concentrations) 
         - Runs the photochemical model and checks for convergence in max_photochem_iterations steps 
         - If converged, then runs the clima model. First modifies the clima input file with max_clima_steps   
         - copies the results files to output_directory 
@@ -286,7 +286,7 @@ class Simulation():
             self.debug('Creating plot {0}'.format(output_directory+'/pressure_temperature.pdf'))
             pyatmos.util.plot_scatter(clima_df, xvariable='T', xlabel='Temperature [K]', yvariable='ALT', ylabel='Altitide [km]', save_name = output_directory+'/pressure_temperature.pdf')   
         except:
-            print('Exception occoured during clima plotting, not handeled')
+            print('Exception occurred during clima plotting, not handeled')
             pass
 
         try:
@@ -305,7 +305,7 @@ class Simulation():
             self.debug('Creating plot {0}'.format(output_directory + '/flux_altitide.pdf'))
             pyatmos.util.plot_multiscatter(photo_flux_df, xvariables=gases, xlabel='Flux [molecules s$^{-1}$ cm$^{-2}$]', yvariable='Z', ylabel='Altitide [km]', save_name = output_directory + '/flux_altitide.pdf')
         except:
-            print('Exception occoured during photochem plotting, not handeled')
+            print('Exception occurred during photochem plotting, not handeled')
             pass 
 
         self._run_time_end = pyatmos.util.UTC_now()
@@ -483,7 +483,7 @@ class Simulation():
             clima_logfile_path = output_directory + '/Clima_log.txt'
             with open(clima_logfile_path, 'r') as file:
                 for line in file.readlines():
-                    if ('Backtrace for this error:' in line) or ('#9  0xffffffffffffffff' in line): # can add more erros to this if they are found 
+                    if ('Backtrace for this error:' in line) or ('#9  0xffffffffffffffff' in line): # can add more errors to this if they are found 
                         print('Detected clima crash inside logfile: {0}'.format(line))
                         return False
 
@@ -497,7 +497,7 @@ class Simulation():
     @staticmethod
     def get_surface_fluxes(parsed_photochem_file, gas_fluxes):
         '''
-        Return the gas flux at the suface from the processed photochem output file
+        Return the gas flux at the surface from the processed photochem output file
         Args:
             parsed_photochem_file: a processed photochem file with fluxes, in csv format
             gas_fluxes: list of gases to get the flux for
@@ -612,9 +612,9 @@ class Simulation():
     def _check_photochem_convergence(self, max_photochem_iterations):
         '''
         Check that photochem has converged, search the output file for N = (number)
-        if number < max_photochem_iterations then convergence has been achived 
+        if number < max_photochem_iterations then convergence has been achieved 
         Args:
-            max_photochem_iterations: an interger with the maximum number of iterations for convergence 
+            max_photochem_iterations: an integer with the maximum number of iterations for convergence 
         '''
         #output = self._generic_run("grep 'N =' /code/atmos/PHOTOCHEM/OUTPUT/out.out")
         #print('output\n')

@@ -69,7 +69,7 @@ To setup the docker image on the google cloud:
 
 ## Auxiliary information
 
-### Seting up docker on google cloud 
+### Setting up docker on google cloud 
 
 To upload your docker image to the google cloud, create your docker file as normal and build it. In this example the docker image will be called quickstart-image:
     

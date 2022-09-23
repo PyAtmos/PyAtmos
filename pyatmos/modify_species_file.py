@@ -93,7 +93,7 @@ def speciesfile_to_df(species_filename):
 #_____________________________________________________________________________
 def find_species_union(dict1, dict2): 
     '''
-    Return the union of the list of keys of two dictonaries
+    Return the union of the list of keys of two dictionaries
     '''
     keys1 = set(dict1.keys())
     keys2 = set(dict2.keys())
@@ -102,7 +102,7 @@ def find_species_union(dict1, dict2):
 #_____________________________________________________________________________
 def dictonary_keys_symmetric_difference(dict1, dict2):
     '''
-    Return the list of keys that are in one dictinary but not the other
+    Return the list of keys that are in one dictionary but not the other
     '''
     keys1 = set(dict1.keys())
     keys1 = set(dict2.keys())
@@ -111,7 +111,7 @@ def dictonary_keys_symmetric_difference(dict1, dict2):
 #_____________________________________________________________________________
 def format_spaced_text(n_total_space, word):
     '''
-    add a number of trainling spaces depending on the size of the word
+    add a number of trailing spaces depending on the size of the word
     
     '''
     n_spaces = n_total_space - len(word)
