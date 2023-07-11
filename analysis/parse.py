@@ -3,7 +3,7 @@ import pyatmos
 
 '''
 Script to parse the tables produced by clima
-Reads the text-based format and converts the inital and final tables into separate CSV files
+Reads the text-based format and converts the initial and final tables into separate CSV files
 
 Example usage 
 python parse.py -o /Users/Will/Documents/FDL/results/google_cloud -c /Users/Will/Documents/FDL/results/google_cloud/clima_allout.tab -p /Users/Will/Documents/FDL/results/google_cloud/out.out 
